@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Check if at least three arguments are provided
+if [ "$#" -lt 3 ]; then
+    echo "Usage: $0 <name_title> <number1> <number2> [number3] [number4] ..."
+    exit 1
+fi
+
+# Extract name_title from the arguments
+name_title="$1"
+
+# Convert the remaining arguments into a Python list
+numbers="["
+for ((i=2; i<=$#; i++)); do
+    numbers+=" ${!i},"
+done
+numbers="${numbers%,}"  # Remove trailing comma
+numbers+=" ]"
+
+# Run the Python script to generate the config file
+python_script='''\
+def create_config(orbital_numbers, output_file="config.txt"):
+    with open(output_file, "w") as config_file:
+        config_file.write("5\n")
+        config_file.write("7\n")
+        config_file.write("4\n")
+        config_file.write("100 100 100\n")
+        
+        for orbital in orbital_numbers:
+            config_file.write("2\n")
+            config_file.write(str(orbital) + "\n")
+            config_file.write("10\n")
+        config_file.write("11\n")
+
+create_config('''"$numbers"''')
+'''
+
+echo "$python_script" | python
+
+echo "Configuration file created."
+
+# Run orca_plot with the generated config file and name_title
+orca_plot "$name_title" -i < config.txt

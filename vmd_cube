@@ -1,0 +1,3 @@
+#!/bin/bash
+export VMDPATH=~/Programs/vmd/vmd
+python3 vmd_cube.py
