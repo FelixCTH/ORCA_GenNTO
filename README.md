@@ -9,5 +9,3 @@ orca_plot
 ## Usage:
 gentox <name_title> <nto_number1> <nto_number2> <nto_number3> <nto_number4> ...
 
-## Making Grid Images:
-grid.ipynb
