@@ -1,4 +1,5 @@
 # ORCA_GenNTO
+![Alt text](grid.tiff)
 
 ## Requirements:
 Python3\
