@@ -7,5 +7,5 @@ mogrify\
 orca_plot
 
 ## Usages:
-genntox <name_title> <nto_number1> <nto_number2> <nto_number3> <nto_number4> ...
+genntox <name_title>.gbw <nto_number1> <nto_number2> <nto_number3> <nto_number4> ...
 
